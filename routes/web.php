@@ -13,6 +13,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CommentController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -35,5 +36,7 @@ Route::resource('post', 'PostController');
 
 Route::resource('/', 'HomeController');
 
-Route::resource('/profile', 'ProfileController');
+Route::resource('/', 'CommentController');
+
+Route::resource('profile', 'ProfileController');
 

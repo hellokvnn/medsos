@@ -23,11 +23,11 @@
             <div class="col-md-5 mb-4">
                 <form action="">
                     <label style="margin-left: -380px" for="nama">Nama Lengkap</label>
-                    <input type="nama" class="form-control" name="nama" value="{{$profile->nama}}">
+                    <input type="nama" class="form-control" name="nama" value="{{$profile->nama}}" disabled>
             </div>   
             <div class="col-md-5 mb-4">
                     <label style="margin-left: -460px" for="bio">Bio</label>
-                    <textarea class="form-control" placeholder="Type Here!" name="bio" style="height: 100px">{{$profile->bio}}</textarea>
+                    <textarea class="form-control" placeholder="Type Here!" name="bio" style="height: 100px" disabled>{{$profile->bio}}</textarea>
                 </form>
             </div> 
         @endforeach

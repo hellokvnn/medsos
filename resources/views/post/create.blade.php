@@ -5,20 +5,21 @@
 <div class="container">
 
     <div class="row justify-content-center">
+        <center><h3>Posting Feed</h3></center> <br>
         <div class="col-md-7">
             <form method="POST" action="{{route('post.store')}}" enctype="multipart/form-data">
                 @csrf
                 <div style="margin-top: 20px" class="card-body">
                     <div class="form-group mb-4">
-                        <textarea class="form-control" placeholder="Type Here!" name="text" style="height: 100px"></textarea>
+                        <textarea class="form-control" placeholder="Type Here!" name="text" style="height: 100px" required></textarea>
                     </div>
                     <div style="margin-left: -10px" class="form-group col-md-5">
                         <img src="images/file-image-solid.svg" height="30px" width="30px">
-                        <input style="margin-top: -30px; margin-left: 30px" type="file" class="form-control flex" name="image">
+                        <input style="margin-top: -30px; margin-left: 30px" type="file" class="form-control" name="image">
                     </div>
                     <div style="margin-left: -10px" class="form-group col-md-5">
                         <img src="images/file-solid.svg" height="30px" width="30px">
-                        <input style="margin-top: -30px; margin-left: 30px" type="file" class="form-control flex" name="file">
+                        <input style="margin-top: -30px; margin-left: 30px" type="file" class="form-control" name="file">
                     </div>
                     <button style="margin-left: 680px" type="submit" class="btn btn-success">Post</button>
                 </div>
@@ -56,11 +57,13 @@
             </div>
             <div style="margin-top: -15px; margin-left: 650px" class="card-body">
                 <a href="{{route('post.edit', $post->id )}}" class="text-decoration-none">
-                    Edit |
+                    <button style="margin-left: -60px" class="btn btn-success" type="submit">Edit</button>
                 </a>
-                <a href="" class="text-decoration-none">
-                    Delete
-                </a>
+                <form action="{{route('post.destroy', $post->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button style="margin-top: -65px" class="btn btn-danger" type="submit">Delete</button>
+                </form>
             </div>
             @endforeach
         </div>
