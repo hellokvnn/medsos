@@ -38,6 +38,9 @@
                     <div class="form-group mb-4">
                         <textarea class="form-control" placeholder="Type Here!" name="text" style="height: 100px" disabled>{{$post->text}}</textarea>
                     </div>
+                    <div class="form-group mb-4">
+                        <img src="{{asset('post-images/'. $post->image)}}" width="745px" height="300px">
+                    </div>
                 </div>
                 <!-- Button trigger modal -->
                 <center><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -78,14 +81,6 @@
                                 <img src="images/profil.jpg" width="50px" height="50px" class="rounded-circle">
                                 <h5 style="margin-top: -40px; margin-left: 55px; margin-bottom: 20px">Kevin</h5>
                                     <textarea class="form-control" name="text" style="height: 100px" disabled> {{$comment->text}} </textarea> <br>
-                                </div>
-                                <div style="margin-top: -30px; margin-left: 380px" class="card-body">
-                                    <a href="" class="text-decoration-none">
-                                        Edit |
-                                    </a>
-                                    <a href="" class="text-decoration-none">
-                                        Delete
-                                    </a>
                                 </div>
                                 @endforeach
                             </div>

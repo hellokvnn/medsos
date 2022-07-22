@@ -45,7 +45,7 @@ class CommentController extends Controller
             'image' => $request->image,
             'file' => $request->file
         ]);
-        return redirect('/')->with('status', 'Data Berhasil Ditambah !');;
+        return redirect('/')->with('status', 'Data Berhasil Ditambah !');
     }
 
     /**

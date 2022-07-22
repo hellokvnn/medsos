@@ -46,11 +46,17 @@ class PostController extends Controller
     // lalu akan diterukan ke view post
     public function store(Request $request)
     {
+        $image = $request->image;
+        $dest = 'post-images';
+        $pictureName = 'img' . '_' . date(("YmdHis")) . "." . $image->getClientOriginalExtension();
+        $image->move($dest, $pictureName);
+
         Post::create([
             'text' => $request->text,
-            'image' => $request->image,
+            'image' => $pictureName,
             'file' => $request->file
         ]);
+
         return redirect('post')->with('status', 'Data Berhasil Ditambah !');
     }
 
@@ -92,9 +98,17 @@ class PostController extends Controller
     //  function update unutk melakukan perubahan pada data, dicari sesuai id lalu dapat diubah sesuai keingingan
     public function update(Request $request, $id)
     {
-        $post = Post::find($id);
+        $image = $request->image;
+        $dest = 'post-images';
+        $pictureName = 'img' . '_' . date(("YmdHis")) . "." . $image->getClientOriginalExtension();
+        $image->move($dest, $pictureName);
 
-        $post->update($request->all());
+        Post::updating([
+            'text' => $request->text,
+            'image' => $pictureName,
+            'file' => $request->file
+        ]);
+
         return redirect('post')->with('status', 'Data Berhasil Diubah !');
     }
 

@@ -54,6 +54,9 @@
                 <div class="form-group mb-4">
                     <textarea class="form-control" placeholder="Type Here!" name="text" style="height: 100px" disabled>{{$post->text}}</textarea>
                 </div>
+                <div class="form-group mb-4">
+                    <img src="{{asset('post-images/'. $post->image)}}" width="745px" height="300px">
+                </div>
             </div>
             <div style="margin-top: -15px; margin-left: 650px" class="card-body">
                 <a href="{{route('post.edit', $post->id )}}" class="text-decoration-none">
